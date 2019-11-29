@@ -2,7 +2,7 @@
  * Cada uno de los eventos: llegada al sistema, inicio de atencion, fin de atencion, etc.
  */
 package comunes;
-
+import java.util.Date;
 /**
  *
  * @author lucianoarguello
@@ -10,11 +10,11 @@ package comunes;
 public class Evento {
 
     private int id;
-    private float hora;
+    private Date hora;
     private String desc;
     private TipoEvento tipo;
 
-    public void setHora(float hora) {
+    public void setHora(Date hora) {
         this.hora = hora;
     }
 
@@ -26,13 +26,13 @@ public class Evento {
         this.tipo = tipo;
     }
     
-    public Evento(float hora, String desc, TipoEvento tipo) {
+    public Evento(Date hora, String desc, TipoEvento tipo) {
         this.hora = hora;
         this.desc = desc;
         this.tipo = tipo;
     }
 
-    public float getHora() {
+    public Date getHora() {
         return hora;
     }
 

@@ -5,88 +5,64 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tablas {
-
-    public Tablas(){
     
-    }
-
     /* Definiciones de tablas con sus probabilidades y rangos */
-    private static List<Intervalo> getTablaDemanda(){
-        List<Intervalo> damandaList = new ArrayList<Intervalo>();
+    public static List<Intervalo> getTablaDemandaA(){
+        List<Intervalo> demandaList = new ArrayList<>();
         
-        damandaList.add(new Intervalo(0, 4, 0));
-        damandaList.add(new Intervalo(5, 16, 1));
-        damandaList.add(new Intervalo(17, 34, 2));
-        damandaList.add(new Intervalo(35, 59, 3));
-        damandaList.add(new Intervalo(60, 81, 4));
-        damandaList.add(new Intervalo(82, 99, 5));
+        demandaList.add(new Intervalo(0, 34, 10));
+        demandaList.add(new Intervalo(35, 59, 15));
+        demandaList.add(new Intervalo(60, 79, 20));
+        demandaList.add(new Intervalo(80, 89, 25));
+        demandaList.add(new Intervalo(90, 99, 30));
 
-        return damandaList;
+        return demandaList;
     }
-
-    private static List<Intervalo> getTablaDemoraPedido(){
-        List<Intervalo> demoraPedList = new ArrayList<Intervalo>();
-
-        demoraPedList.add(new Intervalo(0, 14, 1));
-        demoraPedList.add(new Intervalo(15, 34, 2));
-        demoraPedList.add(new Intervalo(35, 74, 3));
-        demoraPedList.add(new Intervalo(75, 99, 4));
-
-        return demoraPedList;
-    }
-
-    private static List<Intervalo> getTablaCostoPedido(){
-        List<Intervalo> costoPedList = new ArrayList<Intervalo>();
-
-        costoPedList.add(new Intervalo(0, 15, 20));
-        costoPedList.add(new Intervalo(16, 40, 30));
-        costoPedList.add(new Intervalo(41, Integer.MAX_VALUE, 40));
+    
+    public static List<Intervalo> getTablaDemandaB(){
+        List<Intervalo> demandaList = new ArrayList<>();
         
-        return costoPedList;
-    }
+        demandaList.add(new Intervalo(0, 19, 10));
+        demandaList.add(new Intervalo(5, 16, 15));
+        demandaList.add(new Intervalo(17, 34, 20));
+        demandaList.add(new Intervalo(35, 59, 25));
 
+        return demandaList;
+    }
+    
+    public static List<Intervalo> getTablaDemandaC(){
+        List<Intervalo> demandaList = new ArrayList<>();
+        
+        demandaList.add(new Intervalo(0, 19, 10));
+        demandaList.add(new Intervalo(20, 49, 15));
+        demandaList.add(new Intervalo(50, 79, 20));
+        demandaList.add(new Intervalo(80, 99, 25));
+
+        return demandaList;
+    }
+    
+    public static List<Intervalo> getTablaDemandaD(){
+        List<Intervalo> demandaList = new ArrayList<>();
+        
+        demandaList.add(new Intervalo(0, 9, 10));
+        demandaList.add(new Intervalo(10, 29, 15));
+        demandaList.add(new Intervalo(30, 79, 20));
+        demandaList.add(new Intervalo(80, 99, 25));
+
+        return demandaList;
+    }
     /* Obtención de valores desde las tablas de probabilidades */
-    public static int getDemandaValue(int val){
+    public static int getValorIntervalo(int rnd, List<Intervalo> tabla){
         int valorRet=-1;
         
         //si pertenece al intervalo devuelve la demanda correspondiente a ese intervalo
-        for(Intervalo rangoX : Tablas.getTablaDemanda()){
-            if(val >= rangoX.getDesde() && val <= rangoX.getHasta()) {
-                valorRet=rangoX.getValor();
+        for(Intervalo rangoN : tabla){
+            if(rnd >= rangoN.getDesde() && rnd <= rangoN.getHasta()) {
+                valorRet=rangoN.getValor();
                 break;
             }
         }
 
         return valorRet;
-    }
-
-    public static int getDemoraPedidoValue(int val){
-        int valorRet=-1;
-
-        //si pertenece al intervalo devuelve la demanda correspondiente a ese intervalo
-        for(Intervalo rangoX : Tablas.getTablaDemoraPedido()){
-            if(val >= rangoX.getDesde() && val <= rangoX.getHasta()) {
-                valorRet=rangoX.getValor();
-                break;
-            }
-        }
-
-        return valorRet;
-    }
-
-    public static int getCostoPedidoValue(int val){
-        int valorRet=-1;
-
-        //si pertenece al intervalo devuelve la demanda correspondiente a ese intervalo
-        for(Intervalo rangoX : Tablas.getTablaCostoPedido()){
-            if(val >= rangoX.getDesde() && val <= rangoX.getHasta()) {
-                valorRet=rangoX.getValor();
-                break;
-            }
-        }
-
-        return valorRet;
-    }
-
-
+    }    
 }// Fin clase

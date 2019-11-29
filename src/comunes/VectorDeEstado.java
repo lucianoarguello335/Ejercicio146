@@ -1,11 +1,14 @@
 package comunes;
 
 // LEER
+
+import java.util.Date;
+
 // https://stackoverflow.com/questions/2015538/arrays-with-different-datatypes-i-e-strings-and-integers-objectorientend
 public class VectorDeEstado {
 
     private int iteracion;
-    private float hora;
+    private Date hora;
     private String evento;
     private int rndLLegada;
     private float tiempoLLegada;
@@ -35,7 +38,7 @@ public class VectorDeEstado {
         return objs;
     }
 
-    public VectorDeEstado(int iteracion, float hora, String DescEvento, int rndLLegada, float tiempoLLegada, float hLLegada, int contCompradores) {
+    public VectorDeEstado(int iteracion, Date hora, String DescEvento, int rndLLegada, float tiempoLLegada, float hLLegada, int contCompradores) {
         this.iteracion = iteracion;
         this.hora = hora;
         this.evento = DescEvento;
@@ -56,11 +59,11 @@ public class VectorDeEstado {
         this.iteracion = iteracion;
     }
 
-    public float getHora() {
+    public Date getHora() {
         return hora;
     }
 
-    public void setHora(float hora) {
+    public void setHora(Date hora) {
         this.hora = hora;
     }
 

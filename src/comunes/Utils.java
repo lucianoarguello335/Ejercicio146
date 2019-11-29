@@ -32,9 +32,21 @@ public class Utils {
     }
     
     public int getRnd(){
-        int bajo = 10;
-        int alto = 100;
+        int bajo = 1;
+        int alto = 99;
         int res = r.nextInt(alto-bajo) + bajo;
         return res;
     }
+    
+    /*
+    Devuelve el valor para el intervalo donde ha caido
+    el RND (este usando distrib. de probabilidad o no).
+    Utiliza tablas.java e Intervalo.java
+    
+     public int calcularValorDeIntervalo(int rnd){
+        int valorIntervalo;
+        
+        return valorIntervalo;
+    }
+    */
 }
