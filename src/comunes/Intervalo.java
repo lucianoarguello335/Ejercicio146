@@ -2,29 +2,29 @@ package comunes;
 
 public class Intervalo {
 
-    private int desde;
-    private int hasta;
+    private double desde;
+    private double hasta;
     private int valor; 
 
-    public Intervalo(int desde, int hasta, int valor) {
+    public Intervalo(double desde, double hasta, int valor) {
         this.desde = desde;
         this.hasta = hasta;
         this.valor = valor;
     }
 
-    public int getDesde() {
+    public double getDesde() {
         return desde;
     }
 
-    public void setDesde(int desde) {
+    public void setDesde(double desde) {
         this.desde = desde;
     }
 
-    public int getHasta() {
+    public double getHasta() {
         return hasta;
     }
 
-    public void setHasta(int hasta) {
+    public void setHasta(double hasta) {
         this.hasta = hasta;
     }
 
