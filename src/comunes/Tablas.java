@@ -25,7 +25,7 @@ public class Tablas {
         demandaList.add(new Intervalo(0, 19, 10));
         demandaList.add(new Intervalo(5, 16, 15));
         demandaList.add(new Intervalo(17, 34, 20));
-        demandaList.add(new Intervalo(35, 59, 25));
+        demandaList.add(new Intervalo(35, 99, 25));
 
         return demandaList;
     }
