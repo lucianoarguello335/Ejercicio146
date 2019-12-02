@@ -76,6 +76,7 @@ int litrosDOptimo;
 float resultadoDiarioMaximo;
 
 String[] vector;
+String[] mejorDia;
 
 Utils utils;
 
@@ -472,12 +473,15 @@ Utils utils;
                 litrosCOptimo = litrosC;
                 litrosDOptimo = litrosD;
                 resultadoDiarioMaximo = resultadoTotalDia;
+                
+                mejorDia = calcularVectorDeStrings();
             }
             
             iteracion++;
         }
         
         actualizarResultadoFinalEnPantalla();
+        model.addRow(mejorDia);
 
     }//GEN-LAST:event_btn_SimularActionPerformed
 
