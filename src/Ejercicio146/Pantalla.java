@@ -568,7 +568,7 @@ Utils utils;
     en base a la demanda (dem) y la cantidad de litros enviados a la misma (litros)
     */
     public int calcularCantidadVendida(int dem, int litros){
-        if(litros > dem || litros == dem){
+        if(litros >= dem){
             return dem;
         }
        else
@@ -604,10 +604,10 @@ Utils utils;
    
     
     public void calcularVentasDeSucursales(){
-        ventasA = calcularCantidadVendida(demA, rndA);
-        ventasB = calcularCantidadVendida(demB, rndB);
-        ventasC = calcularCantidadVendida(demC, rndC);
-        ventasD = calcularCantidadVendida(demC, rndC);
+        ventasA = calcularCantidadVendida(demA, litrosA);
+        ventasB = calcularCantidadVendida(demB, litrosA);
+        ventasC = calcularCantidadVendida(demC, litrosA);
+        ventasD = calcularCantidadVendida(demC, litrosA);
     }
     
     public void calcularSobrantesDeSucursales(){
@@ -618,17 +618,19 @@ Utils utils;
     }
     
     public void calcularIngresosDeSucursales(){
-        ingresosA = ventasA * precioVenta;
-        ingresosB = ventasB * precioVenta;
-        ingresosC = ventasC * precioVenta;
-        ingresosD = ventasD * precioVenta;
+        float gananciaPorVenta = (precioVenta - precioLitro);
+        ingresosA = ventasA * gananciaPorVenta;
+        ingresosB = ventasB * gananciaPorVenta;
+        ingresosC = ventasC * gananciaPorVenta;
+        ingresosD = ventasD * gananciaPorVenta;
     }
     
     public void calcularPerdidasDeSucursales(){
-       perdidasA = sobrantesA * precioDevolucion;
-       perdidasB = sobrantesB * precioDevolucion;
-       perdidasC = sobrantesC * precioDevolucion;
-       perdidasD = sobrantesD * precioDevolucion;
+       float perdidaPorSobrante = (precioLitro - precioDevolucion);
+       perdidasA = sobrantesA * perdidaPorSobrante;
+       perdidasB = sobrantesB * perdidaPorSobrante;
+       perdidasC = sobrantesC * perdidaPorSobrante;
+       perdidasD = sobrantesD * perdidaPorSobrante;
     }
     
     public void calcularResultadosDeSucursales(){
